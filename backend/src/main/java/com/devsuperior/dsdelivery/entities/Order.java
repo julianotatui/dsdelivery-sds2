@@ -45,7 +45,6 @@ public class Order implements Serializable {
 	}
 	
 	public Order(long id, String address, double latitude, double longitude, Instant moment, OrderStatus status) {
-		super();
 		this.id = id;
 		this.address = address;
 		this.latitude = latitude;
@@ -54,6 +53,8 @@ public class Order implements Serializable {
 		this.status    = status;
 		
 	}
+
+
 
 	public long getId() {
 		return id;
