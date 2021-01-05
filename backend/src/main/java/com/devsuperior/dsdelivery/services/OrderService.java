@@ -4,8 +4,6 @@ import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.swing.JOptionPane;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,7 +48,13 @@ public class OrderService {
 	  
 	  order = repository.save(order);
 	  return new OrderDto(order);
-	  
-	  
+	}
+	
+	@Transactional   
+	public OrderDto setDelivered(Long id){
+		Order order = repository.getOne(id);
+		order.SetStatus(OrderStatus.DELIVERED);
+		order = repository.save(order);
+		return new OrderDto(order);
 	}
 }
