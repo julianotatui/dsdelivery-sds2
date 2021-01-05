@@ -103,6 +103,10 @@ public class Order implements Serializable {
 	public void SetStatus(OrderStatus status) {
 		this.status = status;
 	}
+	
+	public Set<Product> GetProducts() {
+		return products;
+	}
 
 	@Override
 	public int hashCode() {
